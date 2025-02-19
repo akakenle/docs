@@ -1,0 +1,75 @@
+---
+sidebar_position: 1
+id: index
+title: AiHubMix介绍
+slug: /
+---
+
+# AiHubMix介绍
+
+欢迎使用 Aihubmix 提供的AI模型 API 路由服务。我们以 **OpenAI API** 接口为统一标准，可处理 **OpenAI 官方所有模型**，同时也接入了市面上其他主流大预言模型。例如本站已支持 **Claude**、 **谷歌** 、**Llama** 和 **阿里** 等模型调用，调用方法与不变，即使调用阿里和谷歌模型时，只需修改模型名为阿里或谷歌的模型名称即可。
+
+- AiHubMix 主体运营公司为美国公司 AiHubMix, LLC ；
+- AiHubMix旗下合作公司为微软azure、aws、gcp官方代理，因此我们的额度来源完全正规，放心使用和购买；
+
+本站保证openAI，Claude等主流模型的稳定服务和高并发，目前已有大量知名应用接入到生产环境稳定运行；
+
+- 本站openai模型同时链接openai官方和微软azure openai 两个端点，会随机请求azure openai；
+- azure openai相比openai 有一个自动的内容过滤系统，输入输出它都要过滤一下，所以返回内容慢一点。
+- AiHubMix 只简单的转发和路由模型，本身没有任何请求和输出具体数据，所以为了安全，openai模型的请求会随机到azure openai进行内容审核；请勿通过本站请求任何暴力、政治、色情等内容，我们将对触发azure openai内容过滤账号进行统计，如果账号频繁触发内容过滤我们将联系您进行核实；
+
+
+## 快速上手
+
+1. **[充值](https://aihubmix.com/topup)** 页面充值后，确保账户余额不为0。
+
+2. 在 **[API keys](https://aihubmix.com/token)** 页面创建自己的key，然后复制key。
+
+在开始使用API之前，您应该可以获得以下信息：
+```bash
+中转接口地址：https://aihubmix.com
+中转API-Key：sk-xxxxxxxxx
+```
+- ** 新功能预览先行服务器地址：https://api.aihubmix.com **
+
+
+- 如果你是开发者，请查阅 OpenAI 官方 API 文档：
+**[https://platform.openai.com](https://platform.openai.com)**
+开发时将官方文档中所有的 https://api.openai.com 替换为本服务提供的中转接口地址 https://aihubmix.com 即可
+- 如果你想使用基于 ChatGPT 的第三方聊天软件或翻译服务，请查看 **[使用说明](https://doc.aihubmix.com/category/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8)**
+- 针对claude 模型我们也支持Claude原生v1/messages 接口;详情见[Claude 原生接口调用方法](https://doc.aihubmix.com/%E5%A6%82%E4%BD%95%E8%AF%B7%E6%B1%82%E4%BD%BF%E7%94%A8claude%E6%A8%A1%E5%9E%8B)
+
+- 在应用中输入自定义URL的地方，有些应用方可能需要在url后面添加/v1/chat/completions 参数；最常见的有如下三种
+1. https://aihubmix.com
+2. https://aihubmix.com/v1
+3. https://aihubmix.com/v1/chat/completions
+
+- 具体可以查看左边应用的图文教程
+
+## 常用的基于ChatGPT的服务
+
+
+使用API则可以使用很多基于 ChatGPT 的聊天软件，比如：
+- [Lobe-chat](https://chat-preview.lobehub.com/?utm_source=aihubmix&utm_medium=website&utm_campaign=references)
+- [OpenAI Translator](https://chromewebstore.google.com/detail/openai-translator/ogjibjphoadhljaoicdnjnmgokohngcc?hl=zh-TW)
+- [ChatX](https://apps.apple.com/app/id6446304087)
+- [Cherry Studio](https://cherry-ai.com/)
+- ChatBox
+- Sider
+- ChatGPT Next Web
+- Cursor
+- 欧陆翻译
+- AMA
+- 沉浸式翻译
+- 虚拟桌宠模拟器
+- 各种各样的浏览器扩展
+
+同时支持大模型开发使用的 **langchain**、**llamaindex** 等库，我们的特点：
+- 稳定：此中转服务用于维持开源软件的正常更新和维护
+- 方便：所有用到 OpenAI API 的地方都可以无缝替代
+- 快速：我会持续优化中转服务的线路速度，来保证使用体验
+- 省心：没有包月，没有会员，用多少买多少
+
+## 联系我们
+- 商务合作：business@aihubmix.com
+- 意见反馈：feedback@aihubmix.com
