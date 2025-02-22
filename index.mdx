@@ -1,70 +1,75 @@
+---
+sidebar_position: 1
+id: index
+title: AiHubMix介绍
+slug: /
+---
 
+# AiHubMix 介绍
 
-# AiHubMix介绍
+欢迎使用 **AiHubMix** 提供的 AI 模型 API 路由服务！我们基于统一的 OpenAI API 标准，支持 OpenAI 官方所有模型及市面上其他主流大模型（如 Claude、Google、DeekSeekl、Llama、阿里Qwen等）。无论调用哪种模型，使用方法都保持一致，只需在参数中修改模型名称为对应的名称即可。
 
-欢迎使用 Aihubmix 提供的AI模型 API 路由服务。我们以 **OpenAI API** 接口为统一标准，可处理 **OpenAI 官方所有模型**，同时也接入了市面上其他主流大预言模型。例如本站已支持 **Claude**、 **谷歌** 、**Llama** 和 **阿里** 等模型调用，调用方法与不变，即使调用阿里和谷歌模型时，只需修改模型名为阿里或谷歌的模型名称即可。
+---
 
-- AiHubMix 主体运营公司为美国公司 AiHubMix, LLC ；
-- AiHubMix旗下合作公司为微软azure、aws、gcp官方代理，因此我们的额度来源完全正规，放心使用和购买；
+## 公司与合作背景
 
-本站保证openAI，Claude等主流模型的稳定服务和高并发，目前已有大量知名应用接入到生产环境稳定运行；
+- **主体运营公司**：AiHubMix, LLC（美国）  
+- **官方授权代理**：微软 Azure、AWS、GCP 官方代理（额度来源正规，放心使用）  
+- **服务保障**：  
+  - **稳定**：提供 OpenAI、Claude、Google Gemini 等主流模型的高并发和稳定服务  
+  - **可信**：已有众多知名应用在生产环境中稳定接入
 
-- 本站openai模型同时链接openai官方和微软azure openai 两个端点，会随机请求azure openai；
-- azure openai相比openai 有一个自动的内容过滤系统，输入输出它都要过滤一下，所以返回内容慢一点。
-- AiHubMix 只简单的转发和路由模型，本身没有任何请求和输出具体数据，所以为了安全，openai模型的请求会随机到azure openai进行内容审核；请勿通过本站请求任何暴力、政治、色情等内容，我们将对触发azure openai内容过滤账号进行统计，如果账号频繁触发内容过滤我们将联系您进行核实；
+---
 
+## 多端点支持说明
+
+- **OpenAI + Azure 双端点**  
+  - AiHubMix 会同时链接 OpenAI 官方和微软 Azure OpenAI 两个端点，并随机路由请求至 Azure 进行内容审核  
+  - 相比 OpenAI 官方端，Azure OpenAI 自带自动内容过滤，所以响应速度可能略慢  
+  - **请注意合规**：不要请求暴力、政治、色情等敏感内容。若账号频繁触发内容过滤，我们将进行统计并与您联系核实
+
+---
 
 ## 快速上手
 
-1. **[充值](https://aihubmix.com/topup)** 页面充值后，确保账户余额不为0。
+1. **充值**  
+   - 进入「充值」页面完成充值，确保账户余额 > 0  
+2. **创建 API Key**  
+   - 打开「API Keys」页面，创建并复制自己的 Key  
+3. **获取中转信息**  
+   - 稳定中转接口地址：`https://aihubmix.com`  
+   - 中转 API Key：`sk-xxxxxxxxx`  
+   - 备用服务器地址（新功能测试专用）：`https://api.aihubmix.com`  
+4. **替换 API 地址**  
+   - 如果你是开发者，请参考 [OpenAI 官方文档](https://platform.openai.com)  
+   - 开发时，将文档中的 `https://api.openai.com` 替换为 `https://aihubmix.com` 即可  
+   - Claude 模型也支持原生 `v1/messages` 接口（详情请参考“Claude 原生接口调用方法”）
 
-2. 在 **[API keys](https://aihubmix.com/token)** 页面创建自己的key，然后复制key。
+> **提示**：在一些第三方软件或平台输入自定义 URL 时，可能需要添加 `/v1` 或 `/v1/chat/completions` 路径，如：
+> - `https://aihubmix.com`
+> - `https://aihubmix.com/v1`（这种情况目前是最多的）
+> - `https://aihubmix.com/v1/chat/completions`
 
-在开始使用API之前，您应该可以获得以下信息：
-```bash
-中转接口地址：https://aihubmix.com
-中转API-Key：sk-xxxxxxxxx
-```
-- ** 新功能预览先行服务器地址：https://api.aihubmix.com **
+---
 
+## 常用功能与场景
 
-- 如果你是开发者，请查阅 OpenAI 官方 API 文档：
-**[https://platform.openai.com](https://platform.openai.com)**
-开发时将官方文档中所有的 https://api.openai.com 替换为本服务提供的中转接口地址 https://aihubmix.com 即可
-- 如果你想使用基于 ChatGPT 的第三方聊天软件或翻译服务，请查看 **[使用说明](https://doc.aihubmix.com/category/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8)**
-- 针对claude 模型我们也支持Claude原生v1/messages 接口;详情见[Claude 原生接口调用方法](https://doc.aihubmix.com/%E5%A6%82%E4%BD%95%E8%AF%B7%E6%B1%82%E4%BD%BF%E7%94%A8claude%E6%A8%A1%E5%9E%8B)
+- **基于 模型API 的应用软件**  
+  - 例如 Lobe-chat、OpenAI Translator、ChatX、Cherry Studio、ChatBox、Sider、ChatGPT Next Web、Cursor、欧陆翻译、沉浸式翻译等  
+- **大模型开发**  
+  - 完整支持 langchain、llamaindex 等库的调用  
+  - 安装配置与 OpenAI 官方一致，仅需替换 API 地址和 Key  
+- **服务特点**  
+  - **稳定**：用于强大的技术服务团队不断迭代优化系统 
+  - **方便**：和 OpenAI 官方 API 完全兼容，无缝切换  
+  - **快速**：持续优化线路，保障访问与响应速度  
+  - **省心**：无包月、无会员，用多少买多少
 
-- 在应用中输入自定义URL的地方，有些应用方可能需要在url后面添加/v1/chat/completions 参数；最常见的有如下三种
-1. https://aihubmix.com
-2. https://aihubmix.com/v1
-3. https://aihubmix.com/v1/chat/completions
-
-- 具体可以查看左边应用的图文教程
-
-## 常用的基于ChatGPT的服务
-
-
-使用API则可以使用很多基于 ChatGPT 的聊天软件，比如：
-- [Lobe-chat](https://chat-preview.lobehub.com/?utm_source=aihubmix&utm_medium=website&utm_campaign=references)
-- [OpenAI Translator](https://chromewebstore.google.com/detail/openai-translator/ogjibjphoadhljaoicdnjnmgokohngcc?hl=zh-TW)
-- [ChatX](https://apps.apple.com/app/id6446304087)
-- [Cherry Studio](https://cherry-ai.com/)
-- ChatBox
-- Sider
-- ChatGPT Next Web
-- Cursor
-- 欧陆翻译
-- AMA
-- 沉浸式翻译
-- 虚拟桌宠模拟器
-- 各种各样的浏览器扩展
-
-同时支持大模型开发使用的 **langchain**、**llamaindex** 等库，我们的特点：
-- 稳定：此中转服务用于维持开源软件的正常更新和维护
-- 方便：所有用到 OpenAI API 的地方都可以无缝替代
-- 快速：我会持续优化中转服务的线路速度，来保证使用体验
-- 省心：没有包月，没有会员，用多少买多少
+---
 
 ## 联系我们
-- 商务合作：business@aihubmix.com
-- 意见反馈：feedback@aihubmix.com
+
+- **商务合作**：business@aihubmix.com  
+- **意见反馈**：feedback@aihubmix.com  
+
+欢迎通过上述邮箱与我们取得联系。
